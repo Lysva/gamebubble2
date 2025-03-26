@@ -40,3 +40,32 @@ async def main():
 
 pygame.init()
 asyncio.run(main())
+# В main.py
+async def main():
+    # ... инициализация ...
+    
+    start_button = pygame.Rect(300, 300, 200, 50)
+    font = pygame.font.SysFont('Arial', 30)
+    
+    while True:
+        mouse_pos = pygame.mouse.get_pos()
+        mouse_click = False
+        
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                return
+            if event.type == pygame.MOUSEBUTTONDOWN:
+                if event.button == 1:  # Левая кнопка мыши
+                    mouse_click = True
+        
+        # Отрисовка кнопки
+        pygame.draw.rect(screen, (0, 100, 255), start_button)
+        text = font.render("START", True, (255, 255, 255))
+        screen.blit(text, (start_button.x + 50, start_button.y + 10))
+        
+        # Проверка клика
+        if mouse_click and start_button.collidepoint(mouse_pos):
+            print("Кнопка нажата!")  # Должно появиться в консоли
+            # Здесь код запуска игры
+        
+        await asyncio.sleep(0)
