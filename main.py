@@ -1,3 +1,5 @@
+import os
+os.environ['PYGBAG_PWA'] = '0'  # Отключаем PWA-режим
 import pygame
 import asyncio
 
