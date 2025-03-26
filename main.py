@@ -1,3 +1,15 @@
+# В начале main.py
+pygame.display.init()
+pygame.font.init()
+
+async def main():
+    # ... остальной код ...
+    
+    # Добавьте эту проверку
+    if pygame.display.get_init():
+        print("Display initialized successfully")
+    else:
+        print("Display NOT initialized")
 import os
 os.environ['PYGBAG_PWA'] = '0'  # Отключаем PWA-режим
 import pygame
