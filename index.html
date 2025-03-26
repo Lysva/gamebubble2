@@ -344,7 +344,18 @@ config = {
     <script src="https://pygame-web.github.io/archives/0.9//browserfs.min.js"></script>
 
 </head>
-
+<script>
+  // Фикс для Telegram
+  if (window.Telegram?.WebApp?.initData) {
+    Telegram.WebApp.expand();
+    console.log("Telegram WebApp initialized");
+  }
+  
+  // Фикс для WASM
+  window.TelegramGameProxy = {
+    receiveEvent: function() { console.log("Game event received"); }
+  };
+</script>
 <body>
 <script>
   if (window.Telegram?.WebApp?.initData) {
