@@ -346,7 +346,12 @@ config = {
 </head>
 
 <body>
-
+<script>
+  if (window.Telegram?.WebApp?.initData) {
+    Telegram.WebApp.expand();
+    console.log("Telegram WebApp ready!");
+  }
+</script>
     <div id="transfer" align=center>
 <!--        <div class="spinner" id='spinner'></div> -->
         <div class="emscripten" id="status">Downloading...</div>
